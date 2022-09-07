@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FormuWeb 1.0</title>
+    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
+    <script src="./scripts/show_pictures.js"></script>
+    <script src="./scripts/weight.js"></script>
+    <script src="./scripts/long.js"></script>
+</head>
+<body>
+    <header class="header"> 
+        <h1 class="header_title">FormuWeb 1.0</h1>
+
+    </header>
+    <main class="main">
+        <div class="planet_card">
+            <h3>Calcula tu peso en otro planeta</h3>
+            <p> <input type="number" id="peso" placeholder="Digita tu peso en Kgs"/>
+            </p>
+            <div class="planet_card__options_pictures">
+                <div class="options">
+                    <input type="radio" id="Marte" name="planetas" value="Marte" onclick="show_pictures()" checked> 
+                    <label for="Marte">Marte </label><br>
+                    <input type="radio" id="Tierra" name="planetas" value="Tierra" onclick="show_pictures()">
+                    <label for="Tierra">Tierra </label><br>
+                    <input type="radio" id="Jupiter" name="planetas" value="Jupiter" onclick="show_pictures()">
+                    <label for="Jupiter">Jupiter </label><br>
+                    <input type="radio" id="Neptuno" name="planetas" value="Neptuno" onclick="show_pictures()">
+                    <label for="Neptuno">Neptuno </label><br>
+                    <input type="radio" id="Venus" name="planetas" value="Venus" onclick="show_pictures()"> 
+                    <label for="Venus">Venus </label><br>                    
+                </div>
+                <div class="pictures">
+                    <div class="pictures_planet" id="pictures_planet">
+
+                    </div>
+                </div>
+            </div>
+            
+            <div class="calculation">
+                <p>
+                    <input type="button"  value="calcula tu peso" id="boton" onclick="calculate_weight(document.getElementById('peso').value,document.querySelector('input[name=planetas]:checked').id)"/>
+                </p>
+                <p id="calculation__final_message">
+
+                </p>
+
+
+
+            </div>
+
+        </div>
+
+
+
+
+        <div class="measures_card">
+            <h3>Covierte medidas de longitud</h3>
+            <p> <input type="number" id="medida" placeholder="Ingresa la medida"/>
+            </p>
+            <div class="measures_card__options_in">
+                
+                <div class="options">
+                    <p>Convertir de:</p>  <br>
+                    <input type="radio" id="mm" name="medidas_in" value="Milimetros" onclick="show_pictures()" checked> 
+                    <label for="Milimetros">Milímetros (mm) </label><br>
+                    <input type="radio" id="cm" name="medidas_in" value="Centimetros" onclick="show_pictures()">
+                    <label for="Centimetros">Centímetros (cm) </label><br>
+                    <input type="radio" id="dm" name="medidas_in" value="Decimetros" onclick="show_pictures()">
+                    <label for="Decimetros">Decímetros (dm) </label><br>
+                    <input type="radio" id="m" name="medidas_in" value="Metros" onclick="show_pictures()">
+                    <label for="Metros">Metros (m) </label><br>
+                    <input type="radio" id="Dm" name="medidas_in" value="Decametros" onclick="show_pictures()"> 
+                    <label for="Decametros">Decámetros (Dm) </label><br>   
+                    <input type="radio" id="Hm" name="medidas_in" value="Hectometros" onclick="show_pictures()" checked> 
+                    <label for="Hectometros">Hectómetros (Hm) </label><br>
+                    <input type="radio" id="Km" name="medidas_in" value="Kilometros" onclick="show_pictures()" checked> 
+                    <label for="Kilometros">Kilómetros (Km) </label><br>                 
+                </div>
+                
+                <div class="options">
+                    <p>A:</p> <br>
+                    <input type="radio" id="mm" name="medidas_out" value="Milimetros" onclick="show_pictures()" checked> 
+                    <label for="Milimetros">Milímetros (mm) </label><br>
+                    <input type="radio" id="cm" name="medidas_out" value="Centimetros" onclick="show_pictures()">
+                    <label for="Centimetros">Centímetros (cm) </label><br>
+                    <input type="radio" id="dm" name="medidas_out" value="Decimetros" onclick="show_pictures()">
+                    <label for="Decimetros">Decímetros (dm) </label><br>
+                    <input type="radio" id="m" name="medidas_out" value="Metros" onclick="show_pictures()">
+                    <label for="Metros">Metros (m) </label><br>
+                    <input type="radio" id="Dm" name="medidas_out" value="Decametros" onclick="show_pictures()"> 
+                    <label for="Decametros">Decámetros (Dm) </label><br>   
+                    <input type="radio" id="Hm" name="medidas_out" value="Hectometros" onclick="show_pictures()" checked> 
+                    <label for="Hectometros">Hectómetros (Hm) </label><br>
+                    <input type="radio" id="Km" name="medidas_out" value="Kilometros" onclick="show_pictures()" checked> 
+                    <label for="Kilometros">Kilómetros (Km) </label><br>                 
+                </div>
+            </div>
+            
+            <div class="calculation_measures">
+                <p>
+                    <input type="button"  value="Convierte tu medida" id="boton" onclick="convert_measures(document.getElementById('medida').value,document.querySelector('input[name=medidas_in]:checked').id, document.querySelector('input[name=medidas_out]:checked').id)"/>
+                </p>
+                <p id="calculation_measures__final_message">
+
+                </p>
+
+
+
+            </div>
+
+        </div>
+    </main>
+    <footer class="footer">
+        <p>Desarrollado por:</p><br>
+        <p><strong>Nicolás Andrés Fuentes García</strong></p>
+        <p>Colegio Franciscano del Virrey Solis </p>
+        <p>Proyecto Ingenious 7-02</p><br>
+        <p>Derechos Reservados</p> 
+        <p>2022</p> 
+    </footer>    
+
+</body>
+</html>
